@@ -1,0 +1,7 @@
+init weight: 3071
+Iter: 10, weight: 2951
+Iter: 20, weight: 2839
+Iter: 30, weight: 2767
+Iter: 40, weight: 2694
+No more improve in this round.
+Total iter:45, the lowest weight is:2679

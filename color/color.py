@@ -84,12 +84,12 @@ def load_graph(graph_file_name):
 def coloring(G,graph_file_name):    # 两种颜色black，red
     edges=list(G.edges(data=True)) #EdgeView类型转list类型，用于打乱,data=True输出带属性的边 e.g. (0,1,{'color':'black'})
     node_list=list(G.nodes())
-    random.shuffle(edges)
+    #random.shuffle(edges)
     i=1
     num=len(edges)
     for edge in edges:
-        print("{}/{}".format(i,num))
-        # printProgress(i, num, prefix='Progress:', suffix='Complete', barLength=50)
+        #print("{}/{}".format(i,num))
+        printProgress(i, num, prefix='Progress:', suffix='Complete', barLength=50)
         i+=1
         node1,node2=edge[0],edge[1]
         node_list.remove(node1)   # node1
@@ -171,11 +171,11 @@ def printProgress(iteration, total, prefix='', suffix='', decimals=1, barLength=
     sys.stdout.flush()
 
 def main():
-    graph_file_name='./random_shuffle.json'
+    graph_file_name='./random_unshuffle_200.json'
     n=200
     G = nx.complete_graph(n)   # 完全图Kn
     color_G = coloring(G,graph_file_name)   # 生成染色图并保存
-    # color_G = load_graph(graph_file_name)   # 加载已染色的图
+    #color_G = load_graph(graph_file_name)   # 加载已染色的图
     num_same_color_K4=find_same_color_K4(color_G)
     print("完全图K{}经过染色，有{}个同色K4".format(n,num_same_color_K4))
 
